@@ -40,6 +40,7 @@ public class UserListViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        System.out.println("yabadabadoo");
         userListBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_user_list,container,false);
         getUsers();
         userListBinding.setUserList(observableArrayList);

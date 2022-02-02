@@ -3,6 +3,7 @@ package com.cometchat.pro.androiduikit;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,7 +56,23 @@ public class MainActivity extends AppCompatActivity {
 
         superhero1.setOnClickListener(view -> {
                 findViewById(R.id.superhero1_progressbar).setVisibility(View.VISIBLE);
-                login("superhero1");
+                String apiKey = AppConfig.AppDetails.AUTH_KEY; // Replace with your API Key.
+                User user = new User();
+                user.setUid("uid1"); // Replace with your uid for the user to be created.
+                user.setName("Kevin1"); // Replace with the name of the user
+
+                CometChat.createUser(user, apiKey, new CometChat.CallbackListener<User>() {
+                    @Override
+                    public void onSuccess(User user) {
+                        Log.d("createUser", user.toString());
+                    }
+
+                    @Override
+                    public void onError(CometChatException e) {
+                        Log.e("createUser", e.getMessage());
+                    }
+                });
+                login("uid1");
         });
         superhero2.setOnClickListener(view -> {
                 findViewById(R.id.superhero2_progressbar).setVisibility(View.VISIBLE);

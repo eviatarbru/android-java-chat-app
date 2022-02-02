@@ -51,6 +51,7 @@ public class SelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("yabadabadoo2");
         setContentView(R.layout.activity_select);
         logout = findViewById(R.id.logout);
         unifiedLaunch = findViewById(R.id.directLaunch);

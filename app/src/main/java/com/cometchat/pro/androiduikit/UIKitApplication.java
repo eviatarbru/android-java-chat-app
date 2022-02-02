@@ -22,6 +22,7 @@ public class UIKitApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        System.out.println("yabadabadoo3");
         AppSettings appSettings = new AppSettings.AppSettingsBuilder().
                 subscribePresenceForAllUsers().setRegion(AppConfig.AppDetails.REGION).build();
         CometChat.init(this, AppConfig.AppDetails.APP_ID, appSettings,
